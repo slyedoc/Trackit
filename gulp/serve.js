@@ -19,7 +19,6 @@ module.exports = function(options) {
             tasks: function (changedFiles) {
                 var tasks = [];
                 changedFiles.forEach(function (file) {
-                    console.log('change in ' + file);
                     if (path.extname(file) === '.js' && !~tasks.indexOf('inject')) tasks.push('inject');
                     if (path.extname(file) === '.css' && !~tasks.indexOf('inject')) tasks.push('inject');
                 });
