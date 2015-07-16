@@ -9,12 +9,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav">
         <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
-        <li ui-sref-active="active"><a ui-sref="about">About</a></li>
-        <li ui-sref-active="active"><a ui-sref="contact">Contact</a></li>
+        <li ng-if="auth.isAuthenticated" ui-sref-active="active"><a ui-sref="item.list">Items</a></li>
+        <li ng-if="auth.isAuthenticated" ui-sref-active="active"><a ui-sref="user.list">Users</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li>Current date: {{ date | date:'yyyy-MM-dd' }}</li>
+        <li ng-if="!auth.isAuthenticated"><a ng-click="login()">Login</a></li>
+        <li ng-if="auth.isAuthenticated"><a ng-click="logout()">Logout</a></li>
       </ul>
     </div>
   </div>
