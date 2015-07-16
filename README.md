@@ -24,8 +24,10 @@ gulp serve
 
 > Requires gulp to be installed globally 'npm install gulp -g'
 
-This starts and node express server with livereload of all .js and .html files
+This starts and node express server with livereload of all .js and .html files, requires browser [extension](http://livereload.com/extensions/)
 
 ## Install Postgres
 
- TODO: test
+Downloads can be found at [www.postgresql.org](http://www.postgresql.org/download/), which will most likely send you
+to [www.enterprisedb.com] (http://www.enterprisedb.com/products-services-training/pgdownload#windows)
+
