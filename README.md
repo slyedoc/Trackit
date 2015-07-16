@@ -31,3 +31,10 @@ This starts and node express server with livereload of all .js and .html files, 
 Downloads can be found at [www.postgresql.org](http://www.postgresql.org/download/), which will most likely send you
 to [www.enterprisedb.com] (http://www.enterprisedb.com/products-services-training/pgdownload#windows)
 
+> Be sure to remember the 'postgres' account password.
+
+Once complete, you can run follow, provide the postrgres password when prompted:
+```
+createdb trackit
+```
+
