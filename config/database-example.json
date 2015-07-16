@@ -1,0 +1,8 @@
+{
+	"development": {
+		"database": "trackit",
+		"username": "postgres",
+		"password": "testtest",
+		"dialect": "postgres"
+	}
+}
