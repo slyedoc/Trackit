@@ -6,4 +6,4 @@ dist/
 
 .idea/
 
-ruby/Gemfile.lock
+config/database.json
