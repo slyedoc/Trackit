@@ -2,7 +2,7 @@
 
 Project to allow for anyone to track assets.
 
-## Build
+## Setup
 
 ```
 npm update
