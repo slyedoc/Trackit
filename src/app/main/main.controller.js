@@ -1,11 +1,5 @@
 'use strict';
-
-class MainCtrl {
-  constructor ($scope) {
-
-  }
-}
-
-MainCtrl.$inject = ['$scope'];
-
-export default MainCtrl;
+angular.module('app')
+    .controller('MainCtrl', function ($scope) {
+        console.log('test 2');
+    });

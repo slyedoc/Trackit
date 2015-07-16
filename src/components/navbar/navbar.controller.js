@@ -1,11 +1,6 @@
 'use strict';
 
-class NavbarCtrl {
-  constructor ($scope) {
-    $scope.date = new Date();
-  }
-}
+angular.module('app')
+    .controller('NavbarCtrl', function ($scope) {
 
-NavbarCtrl.$inject = ['$scope'];
-
-export default NavbarCtrl;
+    });

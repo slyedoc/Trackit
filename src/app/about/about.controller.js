@@ -1,11 +1,5 @@
 'use strict';
+angular.module('app')
+    .controller('AboutCtrl', function ($scope) {
 
-class AboutCtrl {
-  constructor ($scope) {
-
-  }
-}
-
-AboutCtrl.$inject = ['$scope'];
-
-export default AboutCtrl;
+    });

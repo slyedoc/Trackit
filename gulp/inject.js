@@ -1,40 +1,40 @@
 'use strict';
 
 var gulp = require('gulp');
-
-var $ = require('gulp-load-plugins')();
-
-var wiredep = require('wiredep').stream;
+var mainBowerFiles = require('main-bower-files');
+var angularFilesort = require('gulp-angular-filesort');
+var inject = require('gulp-inject');
+var es = require('event-stream');
 
 module.exports = function(options) {
-  gulp.task('inject', ['scripts', 'styles'], function () {
-    var injectStyles = gulp.src([
-      options.tmp + '/serve/{app,components}/**/*.css',
-      '!' + options.tmp + '/serve/app/vendor.css'
-    ], { read: false });
+  gulp.task('inject', [], function () {
+
+    //get css files
+    var cssFiles = gulp.src(['src/**/*.css']);
+
+    //get js files, be sure to sort for angular
+    var jsFiles =   //include all the js files, ignore test files and all of bwip, then merge only the bwip files we need
+        gulp.src([
+          'src/**/*.js',
+          '!src/**/*test.js'])
+          .pipe(angularFilesort());
 
 
-    var injectScripts = gulp.src([
-      options.tmp + '/serve/{app,components}/**/*.js',
-      '!' + options.src + '/{app,components}/**/*.spec.js',
-      '!' + options.src + '/{app,components}/**/*.mock.js'
-    ], { read: false });
-
-    var injectOptions = {
-      ignorePath: [options.src, options.tmp + '/serve'],
-      addRootSlash: false
-    };
-
-    var wiredepOptions = {
-      directory: 'bower_components',
-      exclude: [/bootstrap\.js/, /bootstrap\.css/]
-    };
-
-    return gulp.src(options.src + '/*.html')
-      .pipe($.inject(injectStyles, injectOptions))
-      .pipe($.inject(injectScripts, injectOptions))
-      .pipe(wiredep(wiredepOptions))
-      .pipe(gulp.dest(options.tmp + '/serve'));
+    //upload files into index.html page and copy to .tmp/serve
+    gulp.src('src/index.html')
+        .pipe(inject(gulp.src(mainBowerFiles(), {read: true}), {
+          name: 'bower',
+          addRootSlash: false,
+          relative: true
+        }))
+        .pipe(inject(es.merge(
+            cssFiles,
+            jsFiles), {
+          addRootSlash: false,
+          relative: true
+        }))
+        .pipe(gulp.dest('.tmp/serve'));
 
   });
+
 };

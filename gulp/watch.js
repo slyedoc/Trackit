@@ -1,8 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
-var browserSync = require('browser-sync');
-
+var livereload = require('gulp-livereload');
 function isOnlyChange(event) {
   return event.type === 'changed';
 }
@@ -25,7 +24,7 @@ module.exports = function(options) {
 
 
     gulp.watch(options.src + '/{app,components}/**/*.html', function(event) {
-      browserSync.reload(event.path);
+
     });
   });
 };

@@ -1,19 +1,6 @@
 'use strict';
 
-//States
-import MainCtrl from './main/main.controller';
-import AboutCtrl from './about/about.controller';
-import ContactCtrl from './contact/contact.controller';
-
-//Components
-import NavbarCtrl from '../components/navbar/navbar.controller';
-
-angular.module('trackit', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'mgcrea.ngStrap', 'angular-loading-bar'])
-  .controller('MainCtrl', MainCtrl)
-  .controller('AboutCtrl', AboutCtrl)
-  .controller('ContactCtrl', AboutCtrl)
-  .controller('NavbarCtrl', NavbarCtrl)
-
+angular.module('app', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'mgcrea.ngStrap', 'angular-loading-bar', 'auth0', 'angular-storage', 'angular-jwt'])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       .state('home', {
@@ -34,6 +21,6 @@ angular.module('trackit', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'r
 
     $urlRouterProvider.otherwise('/');
 
-    $locationProvider.html5Mode(true)
+    //$locationProvider.html5Mode(true);
   })
 ;
