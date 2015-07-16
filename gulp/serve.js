@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var nodemon = require('gulp-nodemon');
 var notify = require('gulp-notify');
 var livereload = require('gulp-livereload');
+var path = require('path');
 
 module.exports = function(options) {
 
@@ -14,9 +15,22 @@ module.exports = function(options) {
 
         nodemon({
             script: 'app.js',
-            ext: 'js'
-            //tasks: ['inject'],
-            //watch: 'src',
+            ext: 'js html css',
+            tasks: function (changedFiles) {
+                var tasks = [];
+                changedFiles.forEach(function (file) {
+                    console.log('change in ' + file);
+                    if (path.extname(file) === '.js' && !~tasks.indexOf('inject')) tasks.push('inject');
+                    if (path.extname(file) === '.css' && !~tasks.indexOf('inject')) tasks.push('inject');
+                });
+                return tasks;
+            },
+            ignore: [
+                '.git/*',
+                '.idea/**',
+                'node_modules/**',
+                'bower_components/**'
+            ]
             //env: { 'NODE_ENV': 'development' }
         })
         .on('restart', function () {
