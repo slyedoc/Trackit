@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var models = require("./models");
 
 var users = require('./routes/users');
+var organizations = require('./routes/organizations');
+var itemTypes = require('./routes/item.types.js');
 
 var app = express();
 
@@ -26,6 +28,8 @@ app.get('/', function(req, res){
 });
 
 app.use('/users', users);
+app.use('/organizations', organizations);
+app.use('/item-types', itemTypes);
 
 app.set('port', process.env.PORT || 3000);
 

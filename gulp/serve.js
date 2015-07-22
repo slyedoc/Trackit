@@ -16,14 +16,7 @@ module.exports = function(options) {
         nodemon({
             script: 'app.js',
             ext: 'js html css',
-            tasks: function (changedFiles) {
-                var tasks = [];
-                changedFiles.forEach(function (file) {
-                    if (path.extname(file) === '.js' && !~tasks.indexOf('inject')) tasks.push('inject');
-                    if (path.extname(file) === '.css' && !~tasks.indexOf('inject')) tasks.push('inject');
-                });
-                return tasks;
-            },
+            tasks: ['inject'],
             ignore: [
                 '.git/*',
                 '.idea/**',
@@ -32,6 +25,8 @@ module.exports = function(options) {
             ]
             //env: { 'NODE_ENV': 'development' }
         })
+        .on('start', ['watch'])
+        .on('change', ['watch'])
         .on('restart', function () {
             gulp.src('app.js')
                 .pipe(livereload())

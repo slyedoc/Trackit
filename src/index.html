@@ -6,7 +6,6 @@
     <title>Track It </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- bower:css -->
     <!-- bower css files will be automatically insert here -->
@@ -15,17 +14,18 @@
     <!-- inject:css -->
     <!-- css files will be automatically insert here -->
     <!-- endinject -->
+
   </head>
   <body>
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <toaster-container  toaster-options="{'close-button': true}"></toaster-container>
+    <toaster-container toaster-options="{'close-button': true}"></toaster-container>
+
+    <navbar></navbar>
 
     <div class="container">
-
-      <div ng-include="'components/navbar/navbar.html'"></div>
 
       <div ui-view></div>
 
@@ -47,6 +47,9 @@
     <!-- inject:partials -->
     <!-- angular templates will be automatically converted in js and inserted here -->
     <!-- endinject -->
+
+    <!-- Livereload -->
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
   </body>
 </html>

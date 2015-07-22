@@ -2,29 +2,18 @@
 
 var gulp = require('gulp');
 var livereload = require('gulp-livereload');
-function isOnlyChange(event) {
-  return event.type === 'changed';
-}
 
 module.exports = function(options) {
-  gulp.task('watch', ['scripts:watch', 'inject'], function () {
+  gulp.task('watch', function () {
 
     gulp.watch([options.src + '/*.html', 'bower.json'], ['inject']);
 
     gulp.watch([
-      options.src + '/{app,components}/**/*.css',
-      options.src + '/{app,components}/**/*.styl'
-    ], function(event) {
-      if(isOnlyChange(event)) {
-        gulp.start('styles');
-      } else {
-        gulp.start('inject');
-      }
+      options.src + '/**/*.css',
+      options.src + '/**/*.js',
+    ], ['inject'], function(event) {
+        livereload()
     });
 
-
-    gulp.watch(options.src + '/{app,components}/**/*.html', function(event) {
-
-    });
   });
 };

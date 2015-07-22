@@ -6,4 +6,4 @@ dist/
 
 .idea/
 
-config/database.json
+config/config.json

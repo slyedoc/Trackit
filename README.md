@@ -12,7 +12,7 @@ bower update
 
 > Requires bower to be installed globally 'npm install bower -g'
 
-Copy database-example.json to database.json (will be git ignored)
+Copy config-example.json to config.json (will be git ignored)
 
 Edit database.json with Postgres info, see [Install Postgres](#install-postgres)
 
@@ -25,10 +25,6 @@ gulp serve
 > Requires gulp to be installed globally 'npm install gulp -g'
 
 Open browser to [http://localhost:3000](http://localhost:3000)
-
-
-This starts and node express server with livereload of all .js and .html files, requires browser [extension](http://livereload.com/extensions/)
-
 
 ## Install Postgres
 

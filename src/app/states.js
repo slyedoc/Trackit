@@ -9,6 +9,51 @@ angular.module('app')
                 templateUrl: 'app/main/main.html',
                 controller: 'MainCtrl'
             })
+            .state('config', {
+                url: '/config',
+                templateUrl: 'app/config/config.html',
+                abstract: true
+            })
+            .state('config.item-type', {
+                url: '/item-type',
+                template: '<div ui-view></div>',
+                abstract: true
+            })
+            .state('config.item-type.list', {
+                url: '/',
+                templateUrl: 'app/config/item-type/list/list.html',
+                controller: 'ItemTypeListCtrl',
+                resolve: {
+                    itemTypes: function (Restangular) {
+                        return Restangular.all('item-types').getList().then(function (data) {
+                            return data;
+                        });
+                    }
+                }
+            })
+            .state('admin', {
+                url: '/admin',
+                templateUrl: 'app/admin/admin.html',
+                abstract: true
+            })
+            .state('admin.organization', {
+                url: '/organization',
+                template: '<div ui-view></div>',
+                abstract: true
+            })
+            .state('admin.organization.list', {
+                url: '/',
+                templateUrl: 'app/admin/organization/list/list.html',
+                controller: 'OrganizationListCtrl',
+                resolve: {
+                    organizations: function (Restangular) {
+                        return Restangular.all('organizations').getList().then(function (data) {
+                            return data;
+                        });
+                    }
+                }
+            })
+
             .state('user', {
                 url: '/users',
                 template: '<div ui-view></div>',
