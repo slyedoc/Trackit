@@ -14,7 +14,7 @@ bower update
 
 Copy config-example.json to config.json (will be git ignored)
 
-Edit database.json with Postgres info, see [Install Postgres](#install-postgres)
+Edit config.json with Postgres info, see [Install Postgres](#install-postgres)
 
 ## Start Development Server
 

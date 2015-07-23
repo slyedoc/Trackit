@@ -31,6 +31,11 @@
     "beforeEach": false,
     "after": false,
     "afterEach": false,
-    "expect": false
+    "expect": false,
+    //Node
+    "require": false,
+    //javascript
+    "console": false
+
   }
 }

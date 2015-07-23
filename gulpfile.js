@@ -1,7 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
-var gutil = require('gulp-util');
+//var gutil = require('gulp-util');
 var _ = require('lodash');
 var wrench = require('wrench');
 
@@ -12,7 +12,7 @@ var options = {
   e2e: 'e2e',
   errorHandler: function(title) {
     return function(err) {
-      gutil.log(gutil.colors.red('[' + title + ']'), err.toString());
+      //gutil.log(gutil.colors.red('[' + title + ']'), err.toString());
       this.emit('end');
     };
   }
