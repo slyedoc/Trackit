@@ -34,6 +34,9 @@
     "expect": false,
     //Node
     "require": false,
+    "module": false,
+    "process": false,
+    "__dirname": false,
     //javascript
     "console": false
 

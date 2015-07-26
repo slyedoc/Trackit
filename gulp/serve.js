@@ -1,4 +1,3 @@
-//TODO: fix this up for gary for easy testing
 'use strict';
 
 var gulp = require('gulp');
@@ -7,30 +6,27 @@ var notify = require('gulp-notify');
 var livereload = require('gulp-livereload');
 var path = require('path');
 
-module.exports = function(options) {
+gulp.task('serve', ['inject'], function () {
 
-    gulp.task('serve', ['inject'], function () {
+    livereload.listen();
 
-        livereload.listen();
-
-        nodemon({
-            script: 'app.js',
-            ext: 'js html css',
-            tasks: ['inject'],
-            ignore: [
-                '.git/*',
-                '.idea/**',
-                'node_modules/**',
-                'bower_components/**'
-            ]
-            //env: { 'NODE_ENV': 'development' }
-        })
-        .on('start', ['watch'])
-        .on('change', ['watch'])
-        .on('restart', function () {
-            gulp.src('app.js')
-                .pipe(livereload())
-                .pipe(notify('Reloading page, please wait...'));
-        })
+    nodemon({
+        script: 'app.js',
+        ext: 'js html css',
+        tasks: ['inject'],
+        ignore: [
+            '.git/*',
+            '.idea/**',
+            'node_modules/**',
+            'bower_components/**'
+        ]
+        //env: { 'NODE_ENV': 'development' }
     })
-};
+    .on('start', ['watch'])
+    .on('change', ['watch'])
+    .on('restart', function () {
+        gulp.src('app.js')
+            .pipe(livereload())
+            .pipe(notify('Reloading page, please wait...'));
+    })
+});

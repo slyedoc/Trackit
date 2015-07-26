@@ -1,8 +1,7 @@
-/**
- * Created by towlesj on 7/16/2015.
- */
+'use strict';
+
 angular.module('app')
-    .config(function ($stateProvider, $urlRouterProvider, $locationProvider, authProvider, jwtInterceptorProvider, $httpProvider) {
+    .config(function ($stateProvider) {
         $stateProvider
             .state('home', {
                 url: '/',

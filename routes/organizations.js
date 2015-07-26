@@ -1,3 +1,5 @@
+'use strict';
+
 var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
@@ -35,7 +37,7 @@ router.put( '/:id', function(req, res) {
         } else {
             res.send(404);
         }
-    })
+    });
 });
 
 router.delete( '/:id', function(req, res) {
@@ -43,11 +45,11 @@ router.delete( '/:id', function(req, res) {
         if (entity) {
             entity.destroy().success(function() {
                 res.send(204);
-            })
+            });
         } else {
             res.send(404);
         }
-    })
+    });
 });
 
 module.exports = router;

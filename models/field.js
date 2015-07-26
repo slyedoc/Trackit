@@ -1,17 +1,17 @@
 /**
  * Created by towlesj on 7/17/2015.
  */
-"use strict";
+'use strict';
 
 module.exports = function(sequelize, DataTypes) {
-    var Field = sequelize.define("Field", {
+    var Field = sequelize.define('Field', {
 
         data: DataTypes.JSONB
     }, {
         classMethods: {
-            associate: function(models) {
-
-            }
+            //associate: function(models) {
+            //
+            //}
         }
     });
 

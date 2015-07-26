@@ -1,9 +1,11 @@
 'use strict';
 
 var gulp = require('gulp');
-//var gutil = require('gulp-util');
+
+require('require-dir')('./gulp');
+
 var _ = require('lodash');
-var wrench = require('wrench');
+
 
 var options = {
   src: 'src',
@@ -17,12 +19,6 @@ var options = {
     };
   }
 };
-
-wrench.readdirSyncRecursive('./gulp').filter(function(file) {
-  return (/\.(js|coffee)$/i).test(file);
-}).map(function(file) {
-  require('./gulp/' + file)(options);
-});
 
 gulp.task('default', ['clean'], function () {
     gulp.start('build');
