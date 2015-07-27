@@ -1,2 +1,14 @@
-Organization List
-<pre>{{ organizations | json }}</pre>
+<div class="row">
+
+    <div class="col-md-12">
+        <h1>Organizations</h1>
+    </div>
+    <div class="col-md-12">
+        <a class="btn btn-primary" template-url="app/admin/organization/add.modal.html" bs-modal="addModal">Add</a>
+        <a class="btn btn-warning" template-url="app/admin/organization/delete.modal.html" bs-modal="deleteModal" ng-disabled="selectedItems.length !== 1">Delete</a>
+    </div>
+</div>
+
+
+<bs-grid options="options"></bs-grid>
+

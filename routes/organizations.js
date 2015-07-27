@@ -11,11 +11,11 @@ router.get('/', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
-    models.Organization.find({ where: { id: req.param('id') } }).then(function(entity) {
+    models.Organization.find({ where: { id: req.params('id') } }).then(function(entity) {
         if (entity) {
             res.json(entity);
         } else {
-            res.send(404);
+            res.sendStatus(404);
         }
     });
 });
@@ -29,25 +29,25 @@ router.post( '/', function(req, res) {
 
 
 router.put( '/:id', function(req, res) {
-    models.Organization.find({ where: { id: req.param('id') } }).then(function(entity) {
+    models.Organization.find({ where: { id: req.params('id') } }).then(function(entity) {
         if (entity) {
             entity.updateAttributes(req.body).then(function(entity) {
                 res.json(entity);
             });
         } else {
-            res.send(404);
+            res.sendStatus(404);
         }
     });
 });
 
 router.delete( '/:id', function(req, res) {
-    models.Organization.find({ where: { id: req.param('id') } }).then(function(entity) {
+    models.Organization.find({ where: { id: req.params('id') } }).then(function(entity) {
         if (entity) {
-            entity.destroy().success(function() {
-                res.send(204);
+            entity.destroy().then(function() {
+                res.sendStatus(204);
             });
         } else {
-            res.send(404);
+            res.sendStatus(404);
         }
     });
 });

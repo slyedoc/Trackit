@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'mgcrea.ngStrap',
+angular.module('app', ['ngAnimate', 'ngMessages', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'mgcrea.ngStrap',
     'angular-loading-bar', 'auth0', 'angular-storage', 'angular-jwt', 'toaster'])
     .config(function ($urlRouterProvider, $locationProvider, authProvider, jwtInterceptorProvider, $httpProvider) {
 

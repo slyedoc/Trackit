@@ -4,7 +4,6 @@ var gulp = require('gulp');
 var nodemon = require('gulp-nodemon');
 var notify = require('gulp-notify');
 var livereload = require('gulp-livereload');
-var path = require('path');
 
 gulp.task('serve', ['inject'], function () {
 
@@ -28,5 +27,5 @@ gulp.task('serve', ['inject'], function () {
         gulp.src('app.js')
             .pipe(livereload())
             .pipe(notify('Reloading page, please wait...'));
-    })
+    });
 });

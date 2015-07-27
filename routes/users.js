@@ -44,7 +44,7 @@ router.put( '/:id', function(req, res) {
 router.delete( '/:id', function(req, res) {
     models.User.find({ where: { id: req.param('id') } }).then(function(entity) {
         if (entity) {
-            entity.destroy().success(function() {
+            entity.destroy().then(function() {
                 res.send(204);
             });
         } else {
