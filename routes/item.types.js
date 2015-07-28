@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
-    models.ItemType.find({ where: { id: req.params('id') } }).then(function(entity) {
+    models.ItemType.find({ where: { id: req.params.id } }).then(function(entity) {
         if (entity) {
             res.json(entity);
         } else {
@@ -29,7 +29,7 @@ router.post( '/', function(req, res) {
 
 
 router.put( '/:id', function(req, res) {
-    models.ItemType.find({ where: { id: req.params('id') } }).then(function(entity) {
+    models.ItemType.find({ where: { id: req.params.id } }).then(function(entity) {
         if (entity) {
             entity.updateAttributes(req.body).then(function(entity) {
                 res.json(entity);
@@ -41,7 +41,7 @@ router.put( '/:id', function(req, res) {
 });
 
 router.delete( '/:id', function(req, res) {
-    models.ItemType.find({ where: { id: req.params('id') } }).then(function(entity) {
+    models.ItemType.find({ where: { id: req.params.id } }).then(function(entity) {
         if (entity) {
             entity.destroy().then(function() {
                 res.sendStatus(204);

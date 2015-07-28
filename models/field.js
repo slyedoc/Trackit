@@ -5,7 +5,7 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Field = sequelize.define('Field', {
-
+        name: DataTypes.STRING,
         data: DataTypes.JSONB
     }, {
         classMethods: {

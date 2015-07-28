@@ -30,6 +30,23 @@ angular.module('app')
                     }
                 }
             })
+            .state('config.field', {
+                url: '/field',
+                template: '<div ui-view></div>',
+                abstract: true
+            })
+            .state('config.field.list', {
+                url: '/',
+                templateUrl: 'app/config/field/list/list.html',
+                controller: 'FieldListCtrl',
+                resolve: {
+                    fields: function (Restangular) {
+                        return Restangular.all('fields').getList().then(function (data) {
+                            return data;
+                        });
+                    }
+                }
+            })
             .state('admin', {
                 url: '/admin',
                 templateUrl: 'app/admin/admin.html',

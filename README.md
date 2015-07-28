@@ -38,3 +38,8 @@ Once complete, you can run follow, provide the postrgres password when prompted:
 createdb trackit
 ```
 
+## Sequelize
+
+[Sequelize Site](http://docs.sequelizejs.com/en/latest/)
+
+See [Migrations](http://docs.sequelizejs.com/en/latest/docs/migrations/)

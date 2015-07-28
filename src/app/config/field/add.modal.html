@@ -1,12 +1,12 @@
 <div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" style="width: 85%" >
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" ng-show="title">
                 <button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" ng-bind="title"></h4>
             </div>
             <div class="modal-body">
-                <form name="frm" role="form" class="form-horizontal">
+                <form name="frm" role="form">
                     <!--Name-->
                     <div class="col-md-12" ng-class="{ 'has-error': frm.name.$invalid }">
                         <div class="form-group">
@@ -18,12 +18,6 @@
                             </div>
                         </div>
                     </div>
-
-
-                        <!-- Embed the schema editor on the form -->
-                    <div fg-edit fg-schema="addEntity.schema"></div>
-
-
                 </form>
                 <div class="clearfix"></div>
             </div>

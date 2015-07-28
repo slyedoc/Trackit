@@ -1,9 +1,8 @@
 'use strict';
 angular.module('app')
-    .controller('ItemTypeListCtrl', function ($scope, itemTypes, toaster) {
-        $scope.entityName = 'Item Type';
-        $scope.entities = itemTypes;
-
+    .controller('FieldListCtrl', function ($scope, fields, toaster) {
+        $scope.entityName = 'Field';
+        $scope.entities = fields;
         $scope.selectedEntities = [];
 
         $scope.options = {
@@ -34,7 +33,7 @@ angular.module('app')
         // Delete
         $scope.delete = function () {
             $scope.selectedEntities[0].remove().then(function () {
-                toaster.pop('success', 'Deleted ' + $scope.entityName, $scope.selectedEntities[0].name);
+                toaster.pop('success', 'Deleted' + $scope.entityName, $scope.selectedEntities[0].name);
                 _.pull($scope.entities, $scope.selectedEntities[0]);
             });
         };

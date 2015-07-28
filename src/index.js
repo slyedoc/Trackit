@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app', ['ngAnimate', 'ngMessages', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'mgcrea.ngStrap',
-    'angular-loading-bar', 'auth0', 'angular-storage', 'angular-jwt', 'toaster'])
+    'angular-loading-bar', 'auth0', 'angular-storage', 'angular-jwt', 'toaster', 'fg'])
     .config(function ($urlRouterProvider, $locationProvider, authProvider, jwtInterceptorProvider, $httpProvider) {
 
         $urlRouterProvider.otherwise('/');

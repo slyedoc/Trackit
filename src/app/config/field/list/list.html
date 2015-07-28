@@ -1,0 +1,22 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <h1>{{ entityName }}s</h1>
+    </div>
+    <div class="col-md-12">
+        <a class="btn btn-primary" template-url="app/config/field/add.modal.html" bs-modal="addModal"
+           title="Add {{ entityName }}">
+            Add
+        </a>
+        <a class="btn btn-warning" template-url="app/config/field/delete.modal.html" bs-modal="deleteModal"
+           title="Delete {{ entityName }}" ng-disabled="selectedEntities.length !== 1">
+            Delete
+        </a>
+    </div>
+
+
+</div>
+
+<bs-grid options="options"></bs-grid>
+
+<pre>{{ entities | json}}</pre>

@@ -8,7 +8,10 @@ module.exports = function(sequelize, DataTypes) {
         name: DataTypes.STRING
     }, {
         classMethods: {
-
+            associate: function(models) {
+                Organization.hasMany(models.Item);
+                Organization.hasMany(models.Item);
+            }
         }
     });
 

@@ -1,16 +1,14 @@
 'use strict';
-
 module.exports = function(sequelize, DataTypes) {
     var ItemType = sequelize.define('ItemType', {
-        created: DataTypes.DATE,
-        name: DataTypes.STRING
+        name: DataTypes.STRING,
+        schema: DataTypes.JSONB
     }, {
         classMethods: {
-            //associate: function(models) {
-            //   // ItemType.belongsTo(models.Organization);
-            //}
+            associate: function(models) {
+                ItemType.belongsTo(models.Organization);
+            }
         }
     });
-
     return ItemType;
 };
